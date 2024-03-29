@@ -1,83 +1,73 @@
-*{
+/* Gerais */
+* {
     font-family: Inter;
     margin: 0;
     padding: 0;
-
 }
 
+/* Cabeçalho */
 header {
-
-    color: white;
-    padding: 1rem;
     text-align: center;
+    position: relative; 
 }
 
-header h1 {
-    font-size: 1.5rem;
-    margin: 0;
-}
-
-/* BEGIN CABEÇALHO */
-
-    /* logo-principal é o h1 dentro do header */
-header .logo-principal {
-    font-family: 'Inter', sans-serif;
-    font-size: 2rem; 
-    color: #3CC366;
-}
-
-header {
-    color: white;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    /* position: fixed;  */
-    width: 100%; 
-    /* top: 0; */
-    z-index: 1000;
-}
-
-    /* Container para a logo e o texto */
+/* Estilos do logotipo */
 .logo-container {
     display: flex;
-    align-items: center; 
+    align-items: center;
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    margin: 15px;
 }
-
 .logo {
     width: 80px; 
-    height: auto; /* Para manter a proporção da imagem */
-    margin-right: 10px; /* espaço entre a imagem e o texto */
+    height: auto;
+    margin: 10px;
+    align-items: center;
 }
 
-    /* Estilos para o parágrafo dentro do header */
-header p {
-    font-size: 1.2rem;
-    margin-top: 0;
+.logo-principal{
+    color: #5B5E8B;
 }
 
-/* END CABEÇALHO */
+/* Banner */
+.banner {
+    width: 100%;
+    height: 80vh;
+    background-image: url('./images/banner-organic.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    z-index: -1;
+}
 
-
-/* BEGIN Buscar produtos */
+/* Busca de produtos */
 .search-products {
-    position: relative;
     width: 60%;
-    margin: 10px auto; /* Adiciona margem superior e inferior para que a barra de busca não fique fixa */
+    margin: 10px auto;
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 5px;
+    position: absolute;
+    top: 85vh; /* Ajusta a posição da barra de busca abaixo do banner */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white; 
 }
 
 .search-text {
     font-size: 20px;
-    text-align: center; 
-    margin-bottom: 20px; /* Adiciona espaço abaixo do texto */
+    text-align: center;
+    margin-top: 10px; 
+ 
 }
 
 .search-products input[type="text"] {
     font-size: 14px;
     color: gray;
-    width: calc(100% - 110px); /* Define a largura do input como 100% menos a largura do botão mais a margem */
+    width: calc(100% - 110px);
     padding: 8px;
     border: none;
     border-radius: 5px;
@@ -86,7 +76,7 @@ header p {
 .search-products button {
     font-size: 14px;
     float: right; 
-    margin-left: 10px; /* adiciona margem à esquerda para separar do input */
+    margin-left: 10px;
     padding: 8px 12px;
     border: none;
     background-color: #C06E77;
@@ -94,12 +84,11 @@ header p {
     border-radius: 5px;
     cursor: pointer;
 }
-/* END Buscar produtos */
 
-
-/* BEGIN RODAPÉ */
+/* Rodapé */
 footer {
     font-family: 'Inter', sans-serif;
+    font-size: 12px;
     background-color: #C06E77;
     color: white;
     padding: 1rem;
@@ -113,4 +102,4 @@ footer {
 footer p {
     margin: 0;
 }
-/* END RODAPÉ */
+
