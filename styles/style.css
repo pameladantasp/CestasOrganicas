@@ -1,0 +1,116 @@
+*{
+    font-family: Inter;
+    margin: 0;
+    padding: 0;
+
+}
+
+header {
+
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* BEGIN CABEÇALHO */
+
+    /* logo-principal é o h1 dentro do header */
+header .logo-principal {
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem; 
+    color: #3CC366;
+}
+
+header {
+    color: white;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    /* position: fixed;  */
+    width: 100%; 
+    /* top: 0; */
+    z-index: 1000;
+}
+
+    /* Container para a logo e o texto */
+.logo-container {
+    display: flex;
+    align-items: center; 
+}
+
+.logo {
+    width: 80px; 
+    height: auto; /* Para manter a proporção da imagem */
+    margin-right: 10px; /* espaço entre a imagem e o texto */
+}
+
+    /* Estilos para o parágrafo dentro do header */
+header p {
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+/* END CABEÇALHO */
+
+
+/* BEGIN Buscar produtos */
+.search-products {
+    position: relative;
+    width: 60%;
+    margin: 10px auto; /* Adiciona margem superior e inferior para que a barra de busca não fique fixa */
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-text {
+    font-size: 20px;
+    text-align: center; 
+    margin-bottom: 20px; /* Adiciona espaço abaixo do texto */
+}
+
+.search-products input[type="text"] {
+    font-size: 14px;
+    color: gray;
+    width: calc(100% - 110px); /* Define a largura do input como 100% menos a largura do botão mais a margem */
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+}
+
+.search-products button {
+    font-size: 14px;
+    float: right; 
+    margin-left: 10px; /* adiciona margem à esquerda para separar do input */
+    padding: 8px 12px;
+    border: none;
+    background-color: #C06E77;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* END Buscar produtos */
+
+
+/* BEGIN RODAPÉ */
+footer {
+    font-family: 'Inter', sans-serif;
+    background-color: #C06E77;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: fixed; 
+    width: 100%; 
+    bottom: 0;
+    z-index: 1000;
+}
+
+footer p {
+    margin: 0;
+}
+/* END RODAPÉ */
