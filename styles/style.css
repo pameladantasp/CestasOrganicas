@@ -97,6 +97,7 @@ header h1 {
 /* Rodapé */
 footer {
     font-family: 'Inter', sans-serif;
+    font-size: 12px;
     background-color: #C06E77;
     color: white;
     padding: 1rem;
