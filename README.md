@@ -20,4 +20,3 @@ Ao selecionar os produtos, os preços devem ser exibidos para as pessoas
 consumidoras.
 
 > Professor: André Luís Bordignon
-
