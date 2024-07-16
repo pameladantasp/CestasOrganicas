@@ -8,39 +8,48 @@
 /* Cabeçalho */
 header {
     text-align: center;
-    position: relative; 
+    position: relative;
 }
 
-header h1 {
-    font-size: 1.5rem;
-    margin: 0;
-}
-
-/* Estilos do logotipo */
-.logo-container {
+/* Logotipo */
+.header-fixed-top {
+    width: 100%; 
+    max-width: 100%; 
+    height: 80px; 
     display: flex;
     align-items: center;
     position: fixed;
-    top: 0; 
-    left: 0; 
-    margin: 10px;
-    z-index: 1000; 
+    top: 0;
+    left: 0;
+    margin: auto;
+    padding: 0px 16px;
+    text-align: center;
+    z-index: 1;
+    background-color: transparent; /* Inicia com fundo transparente */
+    transition: background-color 0.3s ease;
 }
 
-.logo {
+.header-fixed-top.scrolled {
+    background-color:whitesmoke; 
+}
+
+.logo { 
+    /* imagem da logo */
     width: 80px; 
     height: auto;
     margin: 10px;
-    align-items: center ;
+    align-items: center;
+    padding: 0px;
 }
 
-.logo-principal{
+.logo-principal {
+    /* texto da logo */
     font-size: 32px;
     margin: -1px;
     color: #5B5E8B;
 }
 
-/* Banner */
+/* Banner - foto */
 .banner {
     width: 100%;
     height: 80vh;
@@ -55,22 +64,17 @@ header h1 {
 /* Busca de produtos */
 .search-products {
     width: 60%;
-    margin: 10px auto;
+    margin: 20px auto 40px; /* Espaço maior abaixo do banner e do texto de busca */
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 5px;
-    position: absolute;
-    top: 85vh; /* Ajusta a posição da barra de busca abaixo do banner */
-    left: 50%;
-    transform: translateX(-50%);
     background-color: white; 
+    text-align: center;
 }
 
 .search-text {
     font-size: 20px;
-    text-align: center; 
-    margin-bottom: 20px;
-    margin-top: 10px;
+    margin: 20px 0; /* Espaço entre o texto e o retângulo de busca */
 }
 
 .search-products input[type="text"] {
@@ -84,7 +88,6 @@ header h1 {
 
 .search-products button {
     font-size: 14px;
-    float: right; 
     margin-left: 10px;
     padding: 8px 12px;
     border: none;
@@ -94,16 +97,40 @@ header h1 {
     cursor: pointer;
 }
 
+/* 3 Cards */
+.cards-container {
+    display: flex;
+    justify-content: space-around; /* Espaço uniforme ao redor dos cards */
+    margin: 70px 100px;
+}
+
+.card {
+    width: 180px; 
+    height: 200px; 
+    margin: -1px; 
+    padding: 30px; 
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+/* Seções */
+section {
+    margin: 40px 20px;
+}
+
 /* Rodapé */
 footer {
     font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    background-color: #C06E77;
-    color: white;
+    font-size: 14px;
+    background-color: whitesmoke;
+    color: black;
     padding: 1rem;
     text-align: center;
-    position: fixed; 
-    width: 100%; 
     bottom: 0;
     z-index: 1000;
 }
@@ -111,4 +138,3 @@ footer {
 footer p {
     margin: 0;
 }
-
