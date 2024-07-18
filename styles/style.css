@@ -4,14 +4,26 @@
     margin: 0;
     padding: 0;
 }
+    /* título das 3 sessões */
+.h2-sections {
+    font-size: 28px;
+    margin: -1px;
+    color: #5B5E8B;
 
-/* Cabeçalho */
+    margin-bottom: px;
+    padding: 1rem;
+    text-align: center;
+    bottom: 0;
+}
+
+
+/* Cabeçalho - Header */
 header {
     text-align: center;
     position: relative;
 }
 
-/* Logotipo */
+    /* Logotipo */
 .header-fixed-top {
     width: 100%; 
     max-width: 100%; 
@@ -49,7 +61,7 @@ header {
     color: #5B5E8B;
 }
 
-/* Banner - foto */
+    /* Banner - foto */
 .banner {
     width: 100%;
     height: 80vh;
@@ -57,12 +69,58 @@ header {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.8;
+    opacity: 1;
     z-index: -1;
 }
 
-/* Busca de produtos */
-.search-products {
+/* Sessão - Sobre a Cooperativa */
+.sobre-cooperativa {
+    display: contents;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px 50px 50px 50px;
+    padding: 20px;
+    gap: 20px;
+
+}
+
+.content-sobre-coop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.card-img-sobre-coop {
+    flex: 1;
+    display: flex;
+    justify-content: left;
+    margin: 40px;
+}
+
+.card-img-sobre-coop img {
+    width: 100%;
+    max-width: 500px; /* o tamanho máximo para a imagem */
+    height: auto;
+    border-radius: 5px;
+    margin-left: 20%;
+}
+
+.card-text-sobre-coop {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 24px;
+    flex: 1.5;
+    margin-right: 10%;
+    margin-left: 80px;
+    text-align: justify;
+}
+
+
+
+/* Sessão - Buscar produtos */
+
+    /* Barra de busca ??*/
+.buscar-produtos {
     width: 60%;
     margin: 20px auto 40px; /* Espaço maior abaixo do banner e do texto de busca */
     padding: 10px;
@@ -118,10 +176,6 @@ header {
     color: white;
 }
 
-/* Seções */
-section {
-    margin: 40px 20px;
-}
 
 /* Rodapé */
 footer {

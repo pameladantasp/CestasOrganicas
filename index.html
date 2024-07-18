@@ -15,56 +15,53 @@
 </head>
 
 <body>
-    <header class="banner">
-        <img src="./images/banner-organic.jpg" type="image/jpg alt="Banner Cestas Orgânicas" class="banner">
+    <header id="banner">
+        <img src="./images/banner-organic.jpg" type="image/jpg" alt="Banner Cestas Orgânicas" class="banner">
     </header>
     
     <main>
         <div class="header-fixed-top">
             <img src="./images/logo.png" alt="Logo Cestas Orgânicas" class="logo">
-            <h1 class="logo-principal">Cestas Orgânicas</h1>
+            <a onclick="main()"><h1 class="logo-principal">Cestas Orgânicas</h1></a>
         </div>
 
-
-        <section class="cards-container">
-            <a href="#sobre-cooperativa" class="card" style="background-color: #E83D62;">
+        <section class="cards-container" id="cards-container">
+            <a href="#sobre-cooperativa" class="card" onclick="sectionSobre()" style="background-color: #E83D62;">
                 <h2>Sobre a cooperativa</h2>
             </a>
-            <a href="#login" class="card" style="background-color: #696EB8;">
+            <a href="#login" class="card" onclick="sectionLogin()" style="background-color: #696EB8;">
                 <h2>Login</h2>
             </a>
-            <a href="#buscar-produtos" class="card" style="background-color: #FCB73E;">
+            <a href="#buscar-produtos" class="card" onclick="sectionBuscar()" style="background-color: #FCB73E;">
                 <h2>Buscar produtos</h2>
             </a>
         </section>
 
-        <section id="sobre-cooperativa">
-            <h2>Sobre a cooperativa</h2>
-            <p>Informações sobre a cooperativa...</p>
+        <section id="sobre-cooperativa" class="content-section" style="display: none;">
+            <h2 class="h2-sections">Sobre a cooperativa</h2>
+            <div class="coop-content">
+                <div class="card-img-sobre-coop">
+                    <img src="./images/banner-organic.jpg" alt="Banner Cestas Orgânicas">
+                </div>
+                <div class="card-text-sobre-coop">
+                    <p>Descubra o frescor e a qualidade dos alimentos orgânicos na Cestas Orgânicas. 
+                        Nossa cooperativa oferece cestas cuidadosamente montadas, repletas de frutas, 
+                        vegetais e ervas frescos, diretamente de produtores locais comprometidos com 
+                        práticas sustentáveis. Junte-se a nós para uma experiência de compra consciente
+                        e deliciosa!</p>
+                </div>
+            </div>
         </section>
 
-        <section id="login">
-            <h2>Login</h2>
-            <p>Formulário de login...</p>
+        <section id="login" class="content-section" style="display: none;">
+            <h2 class="h2-sections">Login</h2>
+            <!-- Conteúdo da seção de login -->
         </section>
 
-        <section id="buscar-produtos">
-            <h2>Buscar produtos</h2>
-            <p>Ferramentas de busca de produtos...</p>
+        <section id="buscar-produtos" class="content-section" style="display: none;">
+            <h2 class="h2-sections">Buscar produtos</h2>
+            <!-- Conteúdo da seção de buscar produtos -->
         </section>
-
-
-
-
-        <!-- Botão de busca
-        <section class="search-banner">
-            <p class="search-text">Explore nossa variedade de produtos orgânicos</p>
-            <form class="search-products">         
-                <input type="text" placeholder="Busque por um produto...">
-                <button type="submit">Buscar</button>
-            </form>
-        </section> -->
-
     </main>
 
     <footer>
