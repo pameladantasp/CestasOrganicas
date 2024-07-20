@@ -8,51 +8,29 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// clicar na logo volta pra página inicial
-function main() {
-    const sections = document.querySelectorAll('.content-section');
-    sections.forEach(section => {
-        section.style.display = 'none'; // Esconde todas as seções
-    });
 
-    document.querySelector('header').style.display = 'flex'; // banner
-    document.getElementById('cards-container').style.display = 'flex'; // 3 cards 
+// menu lateral
+function toggleMenu() {
+    document.getElementById('side-menu').classList.toggle('open');
+    document.getElementById('menu-overlay').classList.toggle('open');
 }
 
-
-
-// abrir seção por seção na mesma página, sem abrir outra
-function hideAllSections() {
-    const sections = document.querySelectorAll('.content-section');
-    sections.forEach(section => {
-        section.style.display = 'none';
-    });
+function closeMenu() {
+    document.getElementById('side-menu').classList.remove('open');
+    document.getElementById('menu-overlay').classList.remove('open');
 }
 
-function sectionSobre() {
-    hideAllSections();
-    document.getElementById('sobre-cooperativa').style.display = 'block';
-    document.getElementById('cards-container').style.display = 'none';
-    document.getElementById('banner').style.display = 'none';
-}
+    // se o usuário estiver logado, atualize o menu de acordo para nao aparecer a opção
+document.addEventListener('DOMContentLoaded', function() {
+    const userLoggedIn = false; // alterar pra forma de autenticar se ta logado
+    const profileNameElement = document.getElementById('profile-name');
 
-function sectionLogin() {
-    hideAllSections();
-    document.getElementById('login').style.display = 'block';
-    document.getElementById('cards-container').style.display = 'none';
-    document.getElementById('banner').style.display = 'none';
-}
-
-function sectionBuscar() {
-    hideAllSections();
-    document.getElementById('buscar-produtos').style.display = 'block';
-    document.getElementById('cards-container').style.display = 'none';
-    document.getElementById('banner').style.display = 'none';
-}
-
-// document.addEventListener('DOMContentLoaded', function() {
-//     // Adicione um ouvinte de evento para o carregamento do DOM
-// });
-
-
+    if (userLoggedIn) {
+        profileNameElement.textContent = 'Nome do Usuário'; // alterar pra variavel que guarda o nome do user logado
+        profileNameElement.onclick = null;
+    } else {
+        profileNameElement.textContent = 'Entrar';
+        profileNameElement.href = 'login.html';
+    }
+});
 

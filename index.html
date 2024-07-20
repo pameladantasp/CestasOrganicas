@@ -9,7 +9,6 @@
     <link rel="icon" type="image/png" href="./images/logo.png"/>
     <script src="./scripts/script.js" defer></script>
 
-    <!-- Fontes usadas -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
     
 </head>
@@ -21,23 +20,38 @@
     
     <main>
         <div class="header-fixed-top">
-            <img src="./images/logo.png" alt="Logo Cestas Orgânicas" class="logo">
-            <a onclick="main()"><h1 class="logo-principal">Cestas Orgânicas</h1></a>
+            <img src="./images/logo.png" alt="Logotipo Cestas Orgânicas" class="logo">
+            <h1 class="logo-principal">Cestas Orgânicas</h1>
+            <div id="menu-icon" onclick="toggleMenu()">☰</div>
         </div>
 
+        <div id="side-menu" class="side-menu">
+            <div class="menu-header">
+                <img src="./images/default-perfil.jpg" alt="Foto de perfil padrão do sistema" class="profile-picture">
+                <a href="login.html"><div id="profile-name">Entrar</div></a>
+            </div>
+            <a href="produtos.html">Buscar Produtos</a>
+            <a href="carrinho.html">Carrinho</a>
+            <a href="cadastro.html">Cadastrar</a>
+            <a href="perfil.html">Editar Perfil</a>
+            <a href="index.html">Início</a>
+        </div>
+        <div id="menu-overlay" onclick="closeMenu()"></div>
+
+
         <section class="cards-container" id="cards-container">
-            <a href="#sobre-cooperativa" class="card" onclick="sectionSobre()" style="background-color: #E83D62;">
+            <a href="#sobre-cooperativa" class="card" style="background-color: #E83D62;">
                 <h2>Sobre a cooperativa</h2>
             </a>
-            <a href="#login" class="card" onclick="sectionLogin()" style="background-color: #696EB8;">
+            <a href="login.html" class="card" style="background-color: #696EB8;">
                 <h2>Login</h2>
             </a>
-            <a href="#buscar-produtos" class="card" onclick="sectionBuscar()" style="background-color: #FCB73E;">
+            <a href="produtos.html" class="card" style="background-color: #FCB73E;">
                 <h2>Buscar produtos</h2>
             </a>
         </section>
 
-        <section id="sobre-cooperativa" class="content-section" style="display: none;">
+        <section id="sobre-cooperativa" class="content-section" >
             <h2 class="h2-sections">Sobre a cooperativa</h2>
             <div class="coop-content">
                 <div class="card-img-sobre-coop">
@@ -53,15 +67,26 @@
             </div>
         </section>
 
-        <section id="login" class="content-section" style="display: none;">
-            <h2 class="h2-sections">Login</h2>
-            <!-- Conteúdo da seção de login -->
+        <section class="cards-container-MVV" >
+            <a class="missao">
+                <h2>Missão</h2>
+                <br>
+                <p>Promover o acesso a alimentos orgânicos frescos e saudáveis, apoiando agricultores locais e promovendo práticas agrícolas sustentáveis, enquanto fornecemos uma experiência de compra conveniente e
+                    consciente aos nossos membros.</p>
+            </a>
+            <a class="visao">
+                <h2>Visão</h2>
+                <br>
+                <p>Ser reconhecidos como líderes no fornecimento de alimentos orgânicos de alta qualidade, contribuindo para a saúde das pessoas e do nosso planeta, e inspirando comunidades a adotarem hábitos alimentares mais
+                    sustentáveis.</p>
+            </a>
+            <a class="valores">
+                <h2>Valores</h2>
+                <br>
+                <p>Sustentabilidade. Qualidade. Transparência. Apoio à comunidade. Consciência alimentar.</p>
+            </a>
         </section>
 
-        <section id="buscar-produtos" class="content-section" style="display: none;">
-            <h2 class="h2-sections">Buscar produtos</h2>
-            <!-- Conteúdo da seção de buscar produtos -->
-        </section>
     </main>
 
     <footer>
