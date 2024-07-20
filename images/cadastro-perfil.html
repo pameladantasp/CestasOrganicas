@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cestas Orgânicas</title>
+
+    <link rel="stylesheet" type="text/css" href="./styles/style-login.css"> 
+
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script src="./scripts/script-login.js" defer></script>
+
+    <link rel="icon" type="image/png" href="./images/logo.png"/>
+    <script src="./scripts/script.js" defer></script>
+
+    <!-- Fontes usadas -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    
+</head>
+
+<body>  
+    <main>
+        <div class="header-fixed-top">
+            <img src="./images/logo.png" alt="Logotipo Cestas Orgânicas" class="logo">
+            <h1 class="logo-principal">Cestas Orgânicas</h1>
+            <div id="menu-icon" onclick="toggleMenu()">☰</div>
+        </div>
+
+        <div id="side-menu" class="side-menu">
+            <div class="menu-header">
+                <img src="./images/default-perfil.jpg" alt="Foto de perfil padrão do sistema" class="profile-picture">
+                <a href="login.html"><div id="profile-name">Entrar</div></a>
+            </div>
+            <a href="produtos.html">Buscar Produtos</a>
+            <a href="carrinho.html">Carrinho</a>
+            <a href="cadastro.html">Cadastrar</a>
+            <a href="perfil.html">Editar Perfil</a>
+            <a href="index.html">Início</a>
+        </div>
+        <div id="menu-overlay" onclick="closeMenu()"></div>
+
+        <section id="login" class="content-section">
+            <h2 class="h2-sections">Cadastrar perfil</h2>
+        </section>
+
+        <section>
+            <form id="sign-up-form">
+                <input type="text" id="username" placeholder="Nome" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Senha" required>
+                <input type="text" id="cep" placeholder="CEP" required>
+                <input type="text" id="address" placeholder="Endereço" required>
+                <input type="number" id="num-end" placeholder="Nº" required>
+                <input type="text" id="complemento" placeholder="Complemento">
+                <button type="submit">Registrar</button>
+            </form>
+        </section>
+           
+
+        
+
+    </main>
+
+    <footer>
+        <p>Esta página foi desenvolvida por Pâmela Dantas juntamente com o IFSP Campinas</p>
+    </footer>
+</body>
+</html>
