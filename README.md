@@ -1,6 +1,6 @@
 # Cestas Organicas
 
-![Badge 2002](http://img.shields.io/static/v1?label=WIP&message=%2015%&color=red&style=for-the-badge)
+![Badge 2002](http://img.shields.io/static/v1?label=WIP&message=%2070%&color=red&style=for-the-badge)
 Projeto Disciplinar de Desenvolvimento WEB I
 >  ADS - IFSP Campinas
 
