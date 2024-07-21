@@ -9,7 +9,6 @@
     <link rel="icon" type="image/png" href="./images/logo.png"/>
     <script src="./scripts/script.js" defer></script>
 
-    <!-- Fontes usadas -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
     
 </head>
@@ -21,9 +20,24 @@
     
     <main>
         <div class="header-fixed-top">
-            <img src="./images/logo.png" alt="Logo Cestas Orgânicas" class="logo">
+            <img src="./images/logo.png" alt="Logotipo Cestas Orgânicas" class="logo">
             <h1 class="logo-principal">Cestas Orgânicas</h1>
+            <div id="menu-icon" onclick="toggleMenu()">☰</div>
         </div>
+
+        <div id="side-menu" class="side-menu">
+            <div class="menu-header">
+                <img src="./images/default-perfil.jpg" alt="Foto de perfil padrão do sistema" class="profile-picture">
+                <a href="login.html"><div id="profile-name">Entrar</div></a>
+            </div>
+            <a href="index.html">Início</a>
+            <a href="produtos.html">Buscar produtos</a>
+            <a href="carrinho.html">Carrinho</a>
+            <a href="cadastro-perfil.html">Cadastrar perfil</a>
+            <a href="perfil.html">Editar Perfil</a>
+        </div>
+        <div id="menu-overlay" onclick="closeMenu()"></div>
+
 
         <section class="cards-container" id="cards-container">
             <a href="#sobre-cooperativa" class="card" style="background-color: #E83D62;">

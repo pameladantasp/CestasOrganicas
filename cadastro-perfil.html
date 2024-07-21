@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cestas Orgânicas</title>
-    <link rel="stylesheet" type="text/css" href="./styles/style.css"> 
-    <link rel="stylesheet" type="text/css" href="./styles/style-produtos.css"> 
+
+    <link rel="stylesheet" type="text/css" href="./styles/style-login.css"> 
+
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script src="./scripts/script-login.js" defer></script>
+
     <link rel="icon" type="image/png" href="./images/logo.png"/>
-    <script src="./scripts/produtos.js" defer></script>
     <script src="./scripts/script.js" defer></script>
 
     <!-- Fontes usadas -->
@@ -15,7 +19,7 @@
     
 </head>
 
-<body>    
+<body>  
     <main>
         <div class="header-fixed-top">
             <img src="./images/logo.png" alt="Logotipo Cestas Orgânicas" class="logo">
@@ -31,23 +35,30 @@
             <a href="index.html">Início</a>
             <a href="produtos.html">Buscar produtos</a>
             <a href="carrinho.html">Carrinho</a>
-            <a href="cadastro.html">Cadastrar perfil</a>
+            <a href="cadastro-perfil.html">Cadastrar perfil</a>
             <a href="perfil.html">Editar Perfil</a>
         </div>
         <div id="menu-overlay" onclick="closeMenu()"></div>
 
-        <section id="search-banner">
-            <p>Explore nossa variedade de produtos orgânicos</p>
-            <form class="search-products">         
-                <input type="text" placeholder="Busque por um produto...">
-                <button type="submit">&#128269;</button>
-            </form>
-        </section> 
-
-        <section id="products-container">
-            <!-- Produtos inseridos aqui pelo produtos.js -->
+        <section id="login" class="content-section">
+            <h2 class="h2-sections">Cadastrar perfil</h2>
         </section>
-        
+
+        <section>
+            <form id="sign-up-form">
+                <input type="text" id="username" placeholder="Nome" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Senha" required>
+                <input type="text" id="cep" placeholder="CEP" required>
+                <input type="text" id="address" placeholder="Endereço" required>
+                <input type="number" id="num-end" placeholder="Nº" required>
+                <input type="text" id="complemento" placeholder="Complemento">
+                <p label for="profile-picture">Foto de perfil:</label>
+                <input type="file" id="profile-picture" name="profile-picture"><br></p>
+                <button type="submit">Registrar</button>
+            </form>
+        </section>
+           
     </main>
 
     <footer>
