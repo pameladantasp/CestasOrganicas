@@ -21,6 +21,11 @@
     align-items: center;
 }
 
+#tabela-pedidos .buttons .pagamento:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+}
+
 footer {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
