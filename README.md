@@ -7,6 +7,8 @@ Projeto Disciplinar de Desenvolvimento WEB I
 ## Sites:
 https://cestasorganicas-315b7.web.app/
 
+https://github.com/pameladantasp/CestasOrganicas
+
 ## Linguagens utilizadas:
 [![Linguagens](https://skillicons.dev/icons?i=html,css,js&theme=light)](https://skillicons.dev)
 
