@@ -4,19 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cestas Orgânicas</title>
-
     <link rel="stylesheet" type="text/css" href="./styles/style-login.css"> 
 
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
-    <script src="./scripts/login.js" defer></script>
-    <script src="./scripts/script.js" defer></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script defer type="text/javascript" src="./scripts/env.js"></script>
+    <script defer type="text/javascript" src="./scripts/login.js"></script>
+    <script defer type="text/javascript" src="./scripts/script.js"></script> 
 
     <link rel="icon" type="image/png" href="./images/logo.png"/>
-
-    <!-- Fontes usadas -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
-    
 </head>
 
 <body>  
@@ -35,8 +33,9 @@
             <a href="index.html">Início</a>
             <a href="produtos.html">Buscar produtos</a>
             <a href="carrinho.html">Carrinho</a>
-            <a href="cadastro-perfil.html">Cadastrar perfil</a>
-            <a href="perfil.html">Editar Perfil</a>
+            <a href="perfil.html" id="edit-profile-link">Editar Perfil</a>
+            <a href="cadastro-perfil.html" id="register-profile-link">Cadastrar perfil</a>
+            
         </div>
         <div id="menu-overlay" onclick="closeMenu()"></div>
 
@@ -46,8 +45,8 @@
 
         <section>
             <form id="sign-in-form">
-                <input type="email" id="login-email" placeholder="Email" required>
-                <input type="password" id="login-password" placeholder="Senha" required>
+                <input type="email" id="email" name="email" placeholder="E-mail" required>
+                <input type="password" id="password" name="password" placeholder="Senha" required>
                 <button type="submit">Login</button>
                 <a href="recuperar-senha.html">Esqueceu sua senha?</a>
                 <a href="cadastro-perfil.html">Novo por aqui?  Cadastre-se</a>

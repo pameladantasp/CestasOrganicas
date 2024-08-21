@@ -189,7 +189,8 @@ main {
 }
 
 #sign-in-form button:hover {
-    background-color: #67b57f;
+    background-color: rgb(115, 204, 142);
+    transform: scale(110%);
 }
 
 #sign-in-form a {
@@ -202,6 +203,37 @@ main {
 
 #sign-in-form a:hover {
     text-decoration: underline;
+}
+
+#change-pwd-form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+#change-pwd-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#change-pwd-form button {
+    padding: 10px;
+    font-size: 18px;
+    background-color: #61a977;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
+#change-pwd-form a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #FCB73E;
+    text-decoration: none;
 }
 
 #login p {
@@ -247,3 +279,39 @@ main {
     text-decoration: underline;
 }
 /* END registrar */
+
+
+/* BEGIN EDITAR PEFIL */
+#infos-form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+#infos-form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#infos-form button {
+    padding: 10px;
+    font-size: 18px;
+    background-color: #FCB73E;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
+
+#infos-form button:hover {
+    background-color: #c4a36c;
+    transform: scale(110%);
+}
+
+#infos-form a:hover {
+    text-decoration: underline;
+}
+/* END EDITAR PERFIL */
