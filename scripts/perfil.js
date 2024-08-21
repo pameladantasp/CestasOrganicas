@@ -1,22 +1,3 @@
-// Dados codificados para teste
-const testUsers = {
-    "pameladantasp@gmail.com": {
-        password: "123456",
-        username: "Pamela Dantas",
-        cep: "12345-678",
-        address: "Rua Jean Nassif, Barao Geraldo - Campinas",
-        numEnd: "123",
-        complemento: "Apto 1",
-    },
-    "test@example.com": {
-        password: "abcdef",
-        username: "Teste User",
-        cep: "98765-432",
-        address: "Avenida Exemplo",
-        numEnd: "456",
-        complemento: "Bloco B",
-    }
-};
 
 document.addEventListener('DOMContentLoaded', function() {
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -30,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('complemento').value = loggedInUser.complemento || '';
     } else {
         alert('Usuário não está autenticado.');
-        window.location.href = 'login.html'; // Redirecionar para a página de login se não estiver autenticado
+        window.location.href = 'login.html'; 
     }
 });
 
@@ -47,7 +28,6 @@ document.getElementById('sign-up-form').addEventListener('submit', function(e) {
             complemento: document.getElementById('complemento').value,
         };
 
-        // Atualiza os dados do usuário no armazenamento local
         Object.assign(loggedInUser, updatedData);
         localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
 
