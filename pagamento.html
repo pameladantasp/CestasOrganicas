@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cestas Orgânicas</title>
-    <link rel="stylesheet" type="text/css" href="./styles/style-login.css"> 
+    <link rel="stylesheet" type="text/css" href="./styles/style.css"> 
+    <link rel="stylesheet" type="text/css" href="./styles/style-carrinho.css"> 
+    <link rel="icon" type="image/png" href="./images/logo.png"/>
+    <link rel="icon" type="image/png" href="./images/carrinho-de-compras.png"/>
 
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script defer type="text/javascript" src="./scripts/env.js"></script>
     <script defer type="text/javascript" src="./scripts/login.js"></script>
-    <script defer type="text/javascript" src="./scripts/script.js"></script> 
+    <script defer type="text/javascript" src="./scripts/script.js"></script>
+    <script defer type="text/javascript" src="./scripts/pagamento.js"></script>
+    <script defer type="text/javascript" src="./scripts/produtos.js"></script>
 
-    <link rel="icon" type="image/png" href="./images/logo.png"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
 </head>
 
-<body>  
+<body>    
     <main>
         <div class="header-fixed-top">
             <img src="./images/logo.png" alt="Logotipo Cestas Orgânicas" class="logo">
@@ -33,25 +37,28 @@
             <a href="index.html">Início</a>
             <a href="produtos.html">Buscar produtos</a>
             <a href="carrinho.html">Carrinho</a>
-            <a href="perfil.html" id="edit-profile-link">Editar Perfil</a>
-            <a href="cadastro-perfil.html" id="register-profile-link">Cadastrar perfil</a>
-            
+            <a href="cadastro-perfil.html">Cadastrar perfil</a>
+            <a href="perfil.html">Editar Perfil</a>
         </div>
         <div id="menu-overlay" onclick="closeMenu()"></div>
 
-        <section id="login" class="content-section">
-            <h2 class="h2-sections">Login</h2>
-        </section>
+        <section id="titulo-carrinho">
+            <img src="./images/carrinho-de-compras.png" alt="Símbolo carrinho de compras" class="carrinho-compras">
+            <p>Meu carrinho de compras</p>
+        </section> 
 
-        <section>
-            <form id="sign-in-form">
-                <input type="email" id="email" name="email" placeholder="E-mail" required>
-                <input type="password" id="password" name="password" placeholder="Senha" required>
-                <button type="submit">Login</button>
-                <a href="recuperar-senha.html">Esqueceu sua senha?</a>
-                <a href="cadastro-perfil.html">Novo por aqui?  Cadastre-se</a>
-            </form>
-        </section>        
+        <section id="tabela-pedidos">
+            <h2>Anexe o comprovante de pagamento e um e-mail será enviado com a confirmação!</h2>
+            <table>
+                <thead>
+                    <input id="comprovante-input" type="file" name="comprovante"><br></p>
+                </thead>
+            </table>
+            <div class="buttons">
+                <a href="carrinho.html"><button class="back-to-shopping" >Voltar ao carrinho</button></a>
+                <button id="finalize-button" class="pagamento" disabled>Finalizar</button>
+            </div>
+        </section>
 
     </main>
 

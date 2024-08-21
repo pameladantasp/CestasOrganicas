@@ -4,27 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cestas Orgânicas</title>
-    <link rel="stylesheet" type="text/css" href="./styles/style-login.css"> 
+    <link rel="stylesheet" type="text/css" href="./styles/style.css"> 
+    <link rel="stylesheet" type="text/css" href="./styles/style-carrinho.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
     <link rel="icon" type="image/png" href="./images/logo.png"/>
-
+    <link rel="icon" type="image/png" href="./images/carrinho-de-compras.png"/>
+    
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script defer type="text/javascript" src="./scripts/env.js"></script>
     <script defer type="text/javascript" src="./scripts/login.js"></script>
     <script defer type="text/javascript" src="./scripts/script.js"></script>
+    <script defer type="text/javascript" src="./scripts/carrinho.js"></script>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
 </head>
-
-<body>  
+<body>    
     <main>
         <div class="header-fixed-top">
             <img src="./images/logo.png" alt="Logotipo Cestas Orgânicas" class="logo">
             <h1 class="logo-principal">Cestas Orgânicas</h1>
             <div id="menu-icon" onclick="toggleMenu()">☰</div>
         </div>
-
         <div id="side-menu" class="side-menu">
             <div class="menu-header">
                 <img src="./images/default-perfil.jpg" alt="Foto de perfil padrão do sistema" class="profile-picture">
@@ -37,28 +38,40 @@
             <a href="perfil.html">Editar Perfil</a>
         </div>
         <div id="menu-overlay" onclick="closeMenu()"></div>
-
-        <section id="login" class="content-section">
-            <h2 class="h2-sections">Cadastrar perfil</h2>
+        <section id="titulo-carrinho">
+            <img src="./images/carrinho-de-compras.png" alt="Símbolo carrinho de compras" class="carrinho-compras">
+            <p>Meu carrinho de compras</p>
+        </section> 
+        <section id="tabela-pedidos">
+            <h2>Confira seus pedidos e o valor total antes de prosseguir</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produtos</th>
+                        <th>Quantidade</th>
+                        <th>Preço Unitário</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                    <!-- Os itens do carrinho serão carregados aqui pelo carrinho.js-->
+                </tbody>
+                <tfoot >
+                    <tr id="entrega">
+                        <td colspan="2">Entrega</td>
+                        <td>R$5,00</td>
+                    </tr>
+                    <tr id="total">
+                        <td colspan="2">Total</td>
+                        <td id="total-geral">R$0.00</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="buttons">
+                <a href="produtos.html"><button class="back-to-shopping">Voltar às compras</button></a>
+                <a href="pagamento.html"><button class="pagamento">Continuar</button></a>
+            </div>
         </section>
-
-        <section>
-            <form id="sign-up-form">
-                <input type="text" id="username" placeholder="Nome" required>
-                <input type="email" id="email" placeholder="Email" required>
-                <input type="password" id="password" placeholder="Senha" required>
-                <input type="text" id="cep" placeholder="CEP" required>
-                <input type="text" id="address" placeholder="Endereço completo" required>
-                <input type="number" id="num-end" placeholder="Nº" required>
-                <input type="text" id="complemento" placeholder="Complemento">
-                <p label for="profile-picture">Foto de perfil:</label>
-                <input type="file" id="profile-picture" name="profile-picture"><br></p>
-                <button type="submit">Registrar</button>
-            </form>
-        </section>
-           
     </main>
-
     <footer>
         <p>Esta página foi desenvolvida por Pâmela Dantas juntamente com o IFSP Campinas</p>
     </footer>

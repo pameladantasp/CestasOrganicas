@@ -1,4 +1,4 @@
-// surgir background-color no cabeçalho da página 
+// Surgir background-color no cabeçalho da página 
 window.addEventListener('scroll', function() {
     const logoContainer = document.querySelector('.header-fixed-top');
     if (window.scrollY > 50) {
@@ -8,8 +8,7 @@ window.addEventListener('scroll', function() {
     }
 });
 
-
-// menu lateral
+// Menu lateral
 function toggleMenu() {
     document.getElementById('side-menu').classList.toggle('open');
     document.getElementById('menu-overlay').classList.toggle('open');
@@ -20,17 +19,55 @@ function closeMenu() {
     document.getElementById('menu-overlay').classList.remove('open');
 }
 
-    // se o usuário estiver logado, atualize o menu de acordo para nao aparecer a opção
-document.addEventListener('DOMContentLoaded', function() {
-    const userLoggedIn = false; // alterar pra forma de autenticar se ta logado
+function updateMenu() {
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
     const profileNameElement = document.getElementById('profile-name');
+    const editProfileLink = document.querySelector('#side-menu a[href="perfil.html"]');
+    const registerProfileLink = document.querySelector('#side-menu a[href="cadastro-perfil.html"]');
 
-    if (userLoggedIn) {
-        profileNameElement.textContent = 'Nome do Usuário'; // alterar pra variavel que guarda o nome do user logado
+    const existingLogoutButton = document.getElementById('logout-button');
+    if (existingLogoutButton) {
+        existingLogoutButton.remove();
+    }
+
+console.log('Usuário logado:', loggedInUser);
+
+    if (loggedInUser) {
+        profileNameElement.textContent = loggedInUser.username;
         profileNameElement.onclick = null;
+        profileNameElement.href = 'perfil.html';
+
+        editProfileLink.style.display = 'block';
+        registerProfileLink.style.display = 'none';
+
+        // botão "Sair da conta" 
+        const sideMenu = document.getElementById('side-menu');
+        const logoutButton = document.createElement('a');
+        logoutButton.id = 'logout-button';
+        logoutButton.href = '#';
+        logoutButton.textContent = 'Sair da conta';
+        logoutButton.addEventListener('click', function() {
+            auth.signOut().then(() => {
+                localStorage.removeItem('loggedInUser');
+                updateMenu();
+                window.location.href = 'login.html';
+            }).catch((error) => {
+                console.error("Erro ao sair da conta:", error);
+                alert("Erro ao sair da conta: " + error.message);
+            });
+        });
+        sideMenu.appendChild(logoutButton);
     } else {
         profileNameElement.textContent = 'Entrar';
         profileNameElement.href = 'login.html';
+
+        editProfileLink.style.display = 'none';
+        registerProfileLink.style.display = 'block';
     }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    updateMenu(); 
 });
+
 

@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cestas Orgânicas</title>
-
     <link rel="stylesheet" type="text/css" href="./styles/style.css"> 
+    <link rel="stylesheet" type="text/css" href="./styles/style-produtos.css">
     <link rel="icon" type="image/png" href="./images/logo.png"/>
-    <script src="./scripts/script.js" defer></script>
 
-    <!-- Fontes usadas -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script defer type="text/javascript" src="./scripts/env.js"></script>
+    <script defer type="text/javascript" src="./scripts/login.js"></script>
+    <script defer type="text/javascript" src="./scripts/script.js"></script>
+    <script defer type="text/javascript" src="./scripts/carrinho.js"></script>
+    <script defer type="text/javascript" src="./scripts/produtos.js"></script>
     
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
 </head>
 
-<body>
-    <header id="banner">
-        <img src="./images/banner-organic.jpg" type="image/jpg" alt="Banner Cestas Orgânicas" class="banner">
-    </header>
-    
+<body>    
     <main>
         <div class="header-fixed-top">
             <img src="./images/logo.png" alt="Logotipo Cestas Orgânicas" class="logo">
@@ -31,19 +33,27 @@
                 <img src="./images/default-perfil.jpg" alt="Foto de perfil padrão do sistema" class="profile-picture">
                 <a href="login.html"><div id="profile-name">Entrar</div></a>
             </div>
-            <a href="produtos.html">Buscar Produtos</a>
-            <a href="carrinho.html">Carrinho</a>
-            <a href="cadastro.html">Cadastrar</a>
-            <a href="perfil.html">Editar Perfil</a>
             <a href="index.html">Início</a>
+            <a href="produtos.html">Buscar produtos</a>
+            <a href="carrinho.html">Carrinho</a>
+            <a href="cadastro-perfil.html">Cadastrar perfil</a>
+            <a href="perfil.html">Editar Perfil</a>
         </div>
         <div id="menu-overlay" onclick="closeMenu()"></div>
-        
-        <section id="buscar-produtos" class="content-section" style="display: none;">
-            <h2 class="h2-sections">Buscar produtos</h2>
-            <!-- Conteúdo da seção de buscar produtos -->
-        </section>
 
+        <section id="search-banner">
+            <p>Explore nossa variedade de produtos orgânicos</p>
+            <form class="search-products">         
+                <input id="search-input" type="text" placeholder="Busque por um produto...">
+                <button type="submit">&#128269;</button>
+            </form>
+        </section> 
+
+        <div class="carrinho"><a href="carrinho.html"><button>Carrinho</button></a></div>
+
+        <section id="products-container">
+            <!-- Produtos inseridos aqui pelo produtos.js -->
+        </section>
         
     </main>
 

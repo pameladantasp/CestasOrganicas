@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cestas Orgânicas</title>
     <link rel="stylesheet" type="text/css" href="./styles/style-login.css"> 
-
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script defer type="text/javascript" src="./scripts/env.js"></script>
     <script defer type="text/javascript" src="./scripts/login.js"></script>
-    <script defer type="text/javascript" src="./scripts/script.js"></script> 
-
+    <script defer type="text/javascript" src="./scripts/script.js"></script>
+    <script defer type="text/javascript" src="./scripts/perfil.js"></script>
     <link rel="icon" type="image/png" href="./images/logo.png"/>
+    <!-- Fontes usadas -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
 </head>
-
 <body>  
     <main>
         <div class="header-fixed-top">
@@ -24,7 +23,6 @@
             <h1 class="logo-principal">Cestas Orgânicas</h1>
             <div id="menu-icon" onclick="toggleMenu()">☰</div>
         </div>
-
         <div id="side-menu" class="side-menu">
             <div class="menu-header">
                 <img src="./images/default-perfil.jpg" alt="Foto de perfil padrão do sistema" class="profile-picture">
@@ -33,28 +31,44 @@
             <a href="index.html">Início</a>
             <a href="produtos.html">Buscar produtos</a>
             <a href="carrinho.html">Carrinho</a>
-            <a href="perfil.html" id="edit-profile-link">Editar Perfil</a>
-            <a href="cadastro-perfil.html" id="register-profile-link">Cadastrar perfil</a>
-            
+            <a href="cadastro-perfil.html">Cadastrar perfil</a>
+            <a href="perfil.html">Editar Perfil</a>
         </div>
         <div id="menu-overlay" onclick="closeMenu()"></div>
-
         <section id="login" class="content-section">
-            <h2 class="h2-sections">Login</h2>
+            <h2 class="h2-sections">Informações do perfil</h2>
         </section>
-
         <section>
-            <form id="sign-in-form">
-                <input type="email" id="email" name="email" placeholder="E-mail" required>
-                <input type="password" id="password" name="password" placeholder="Senha" required>
-                <button type="submit">Login</button>
-                <a href="recuperar-senha.html">Esqueceu sua senha?</a>
-                <a href="cadastro-perfil.html">Novo por aqui?  Cadastre-se</a>
+            <form id="infos-form">
+                <label for="username" style="color:#b55c6d;">Nome:</label>
+                <input type="text" id="username" disabled>
+
+                <label for="email" style="color:#b55c6d;">E-mail:</label>
+                <input type="email" id="email" disabled>
+
+                <label for="password" style="color:#b55c6d;">Senha:</label>
+                <input type="password" id="password" disabled>
+
+                <label for="cep" style="color:#b55c6d;">CEP:</label>
+                <input type="text" id="cep" disabled>
+
+                <label for="address" style="color:#b55c6d;">Endereço:</label>
+                <input type="text" id="address" disabled>
+
+                <label for="num-end" style="color:#b55c6d;">N°:</label>
+                <input type="number" id="num-end" disabled>
+
+                <label for="complemento" style="color:#b55c6d;">Complemento:</label>
+                <input type="text" id="complemento" disabled>
+
+                <p label for="profile-picture" style="color:#b55c6d;">Foto de perfil:</label>
+                <input type="file" id="profile-picture" name="profile-picture" disabled><br></p>
+
+                <button type="button" id="edit-btn">Editar</button>
+                <button type="submit" id="save-btn" style="display: none;">Salvar</button>
             </form>
-        </section>        
-
+        </section>
     </main>
-
     <footer>
         <p>Esta página foi desenvolvida por Pâmela Dantas juntamente com o IFSP Campinas</p>
     </footer>
