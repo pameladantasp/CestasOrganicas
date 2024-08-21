@@ -1,7 +1,11 @@
-# Cestas Organicas
+# Cestas Orgânicas - Projeto Disciplinar de Desenvolvimento WEB I
 
-![Badge 2002](http://img.shields.io/static/v1?label=WIP&message=%2085%&color=red&style=for-the-badge)
-Projeto Disciplinar de Desenvolvimento WEB I
+![Badge 2002](http://img.shields.io/static/v1?label=WIP&message=%2090%&style=for-the-badge)
+
+> Pamela Dantas CP3019012
+> 
+> Professor: André Luís Bordignon
+> 
 >  ADS - IFSP Campinas
 
 ## Sites:
@@ -21,5 +25,4 @@ então se encarrega de fazer a entrega do pedido para a pessoa consumidora.
 Ao selecionar os produtos, os preços devem ser exibidos para as pessoas
 consumidoras.
 
-> Professor: André Luís Bordignon
 
