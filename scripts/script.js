@@ -19,17 +19,55 @@ function closeMenu() {
     document.getElementById('menu-overlay').classList.remove('open');
 }
 
-// Atualizar o menu lateral com base no login
-document.addEventListener('DOMContentLoaded', function() {
+function updateMenu() {
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
     const profileNameElement = document.getElementById('profile-name');
+    const editProfileLink = document.querySelector('#side-menu a[href="perfil.html"]');
+    const registerProfileLink = document.querySelector('#side-menu a[href="cadastro-perfil.html"]');
+
+    const existingLogoutButton = document.getElementById('logout-button');
+    if (existingLogoutButton) {
+        existingLogoutButton.remove();
+    }
+
+console.log('Usuário logado:', loggedInUser);
 
     if (loggedInUser) {
-        profileNameElement.textContent = loggedInUser.username; // Exibe o nome do usuário logado
+        profileNameElement.textContent = loggedInUser.username;
         profileNameElement.onclick = null;
-        profileNameElement.href = 'perfil.html'; // Adiciona a página de perfil como destino
+        profileNameElement.href = 'perfil.html';
+
+        editProfileLink.style.display = 'block';
+        registerProfileLink.style.display = 'none';
+
+        // botão "Sair da conta" 
+        const sideMenu = document.getElementById('side-menu');
+        const logoutButton = document.createElement('a');
+        logoutButton.id = 'logout-button';
+        logoutButton.href = '#';
+        logoutButton.textContent = 'Sair da conta';
+        logoutButton.addEventListener('click', function() {
+            auth.signOut().then(() => {
+                localStorage.removeItem('loggedInUser');
+                updateMenu();
+                window.location.href = 'login.html';
+            }).catch((error) => {
+                console.error("Erro ao sair da conta:", error);
+                alert("Erro ao sair da conta: " + error.message);
+            });
+        });
+        sideMenu.appendChild(logoutButton);
     } else {
         profileNameElement.textContent = 'Entrar';
         profileNameElement.href = 'login.html';
+
+        editProfileLink.style.display = 'none';
+        registerProfileLink.style.display = 'block';
     }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    updateMenu(); 
 });
+
+
