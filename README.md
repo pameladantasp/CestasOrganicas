@@ -1,3 +1,5 @@
+# ATENÇÃO: minhas alterações locais não estão indo com o deploy. Não está validando igual valida com o go live, por exemplo.
+
 # Cestas Orgânicas - Projeto Disciplinar de Desenvolvimento WEB I
 
 ![Badge 2002](http://img.shields.io/static/v1?label=WIP&message=%2090%&style=for-the-badge)
