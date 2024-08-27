@@ -1,6 +1,6 @@
 # Cestas Orgânicas - Projeto Disciplinar de Desenvolvimento WEB I
 
-![Badge 2002](http://img.shields.io/static/v1?label=WIP&message=%2098%&style=for-the-badge)
+![Badge 2002](http://img.shields.io/static/v1?label=WIP&message=%20100%&style=for-the-badge)
 
 > Pamela Dantas CP3019012
 > 
