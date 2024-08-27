@@ -8,17 +8,27 @@
     <link rel="stylesheet" type="text/css" href="./styles/style-carrinho.css"> 
     <link rel="icon" type="image/png" href="./images/logo.png"/>
     <link rel="icon" type="image/png" href="./images/carrinho-de-compras.png"/>
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script> 
     <script defer type="text/javascript" src="./scripts/env.js"></script>
     <script defer type="text/javascript" src="./scripts/login.js"></script>
     <script defer type="text/javascript" src="./scripts/script.js"></script>
-    <script defer type="text/javascript" src="./scripts/pagamento.js"></script>
     <script defer type="text/javascript" src="./scripts/produtos.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("lMJ98h-lLT_y87xkU");
+        })();
+    </script>
+    <script defer type="text/javascript" src="./scripts/pagamento.js"></script>
+    <script defer type="text/javascript" src="./scripts/carrinho.js"></script>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
 </head>
 
 <body>    
@@ -60,8 +70,15 @@
             </div>
         </section>
 
-    </main>
 
+        <!-- Barra de progresso -->
+        <div id="progress-overlay" class="progress-overlay" style="display:none;">
+            <div class="progress-bar">
+                <p id="progress-message">Pedido sendo enviado...</p>
+            </div>
+        </div>
+
+    </main>
     <footer>
         <p>Esta página foi desenvolvida por Pâmela Dantas juntamente com o IFSP Campinas</p>
     </footer>

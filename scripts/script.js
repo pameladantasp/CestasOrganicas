@@ -30,7 +30,6 @@ function updateMenu() {
         existingLogoutButton.remove();
     }
 
-console.log('Usuário logado:', loggedInUser);
 
     if (loggedInUser) {
         profileNameElement.textContent = loggedInUser.username;
@@ -70,4 +69,28 @@ document.addEventListener('DOMContentLoaded', function() {
     updateMenu(); 
 });
 
+// POP UP PADRAO
+function showPopup(message) {
+    const popupTemplate = document.getElementById('popup-template');
+    const popupMessage = popupTemplate.querySelector('#popup-message');
+    const closeBtn = popupTemplate.querySelector('.close-btn');
+
+    // Define a mensagem do pop-up
+    popupMessage.textContent = message;
+
+    // Exibe o pop-up
+    popupTemplate.style.display = 'flex';
+
+    // Adiciona um evento para fechar o pop-up
+    closeBtn.addEventListener('click', () => {
+        popupTemplate.style.display = 'none';
+    });
+
+    // Também fecha o pop-up ao clicar fora do conteúdo
+    popupTemplate.addEventListener('click', (event) => {
+        if (event.target === popupTemplate) {
+            popupTemplate.style.display = 'none';
+        }
+    });
+}
 

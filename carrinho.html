@@ -13,9 +13,21 @@
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script> 
+
     <script defer type="text/javascript" src="./scripts/env.js"></script>
     <script defer type="text/javascript" src="./scripts/login.js"></script>
     <script defer type="text/javascript" src="./scripts/script.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("lMJ98h-lLT_y87xkU");
+        })();
+    </script>
+    <script defer type="text/javascript" src="./scripts/pagamento.js"></script>
     <script defer type="text/javascript" src="./scripts/carrinho.js"></script>
 
 </head>
@@ -62,7 +74,7 @@
                     </tr>
                     <tr id="total">
                         <td colspan="2">Total</td>
-                        <td id="total-geral">R$0.00</td>
+                        <td id="total-value">R$0.00</td>
                     </tr>
                 </tfoot>
             </table>
@@ -75,5 +87,8 @@
     <footer>
         <p>Esta página foi desenvolvida por Pâmela Dantas juntamente com o IFSP Campinas</p>
     </footer>
+
+    <script src="./scripts/pagamento.js"></script>
+
 </body>
 </html>
