@@ -278,6 +278,14 @@ main {
 #sign-up-form a:hover {
     text-decoration: underline;
 }
+
+#error-message {
+    display: none;
+    color: red;
+    text-align: center;
+
+}
+
 /* END registrar */
 
 

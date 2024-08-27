@@ -9,9 +9,12 @@
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+
     <script defer type="text/javascript" src="./scripts/env.js"></script>
     <script defer type="text/javascript" src="./scripts/login.js"></script>
-    <script defer type="text/javascript" src="./scripts/script.js"></script> 
+    <script defer type="text/javascript" src="./scripts/script.js"></script>
+    <script defer type="text/javascript" src="./scripts/cadastro.js"></script>
 
     <link rel="icon" type="image/png" href="./images/logo.png"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
@@ -45,6 +48,7 @@
 
         <section>
             <form id="sign-in-form">
+                <div id="error-message" style="display: none; color: red; text-align: center; margin-bottom: 15px;"></div>
                 <input type="email" id="email" name="email" placeholder="E-mail" required>
                 <input type="password" id="password" name="password" placeholder="Senha" required>
                 <button type="submit">Login</button>

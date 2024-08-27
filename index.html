@@ -11,6 +11,8 @@
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+
     <script defer type="text/javascript" src="./scripts/env.js"></script>
     <script defer type="text/javascript" src="./scripts/login.js"></script>
     <script defer type="text/javascript" src="./scripts/script.js"></script>
@@ -21,7 +23,7 @@
 
 <body>
     <header id="banner">
-        <img src="./images/banner-organic.jpg" type="image/jpg" alt="Banner Cestas Orgânicas" class="banner">
+        <img src="./images/banner-organic.jpg" alt="Banner Cestas Orgânicas" class="banner">
     </header>
     
     <main>
@@ -92,6 +94,14 @@
                 <p>Sustentabilidade. Qualidade. Transparência. Apoio à comunidade. Consciência alimentar.</p>
             </a>
         </section>
+
+        <div id="popup-template" class="popup" style="display:none;">
+            <div class="popup-content">
+                <span class="close-btn">&times;</span>
+                <p id="popup-message">Mensagem de erro</p>
+            </div>
+        </div>
+        
 
     </main>
 

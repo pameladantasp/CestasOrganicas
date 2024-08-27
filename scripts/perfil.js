@@ -1,25 +1,41 @@
+function toggleEditMode(enable) {
+    const fields = document.querySelectorAll('#infos-form input');
+    fields.forEach(field => {
+        field.disabled = !enable;
+    });
+
+    const saveButton = document.getElementById('save-btn');
+    saveButton.style.display = enable ? 'block' : 'none';
+
+    const editButton = document.getElementById('edit-btn');
+    editButton.style.display = enable ? 'none' : 'block';
+}
+
+function updateSaveButtonState() {
+    const saveButton = document.getElementById('save-btn');
+    const isAnyFieldEdited = [...document.querySelectorAll('#infos-form input')].some(input => input.value !== input.defaultValue);
+    saveButton.disabled = !isAnyFieldEdited;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicialize Firebase Auth e Firestore
-    const auth = firebase.auth();
-    const db = firebase.firestore();
 
     function loadUserProfile(user) {
         if (user) {
-            console.log('Usuário logado:', user);
             db.collection('users').doc(user.uid).get()
                 .then((doc) => {
                     if (doc.exists) {
                         const userData = doc.data();
                         document.getElementById('username').value = userData.username || '';
                         document.getElementById('email').value = userData.email || '';
-                        document.getElementById('password').value = userData.password || '******';
+                        document.getElementById('password').value = '******';
                         document.getElementById('cep').value = userData.cep || '';
                         document.getElementById('address').value = userData.address || '';
                         document.getElementById('num-end').value = userData.numEnd || '';
                         document.getElementById('complemento').value = userData.complemento || '';
-                        // Desabilite os campos inicialmente
+                        const profileImg = document.querySelector('.profile-picture');
+                        profileImg.src = userData.profilePictureURL || './images/default-perfil.jpg'; // Atualizar foto de perfil
                         toggleEditMode(false);
-                        updateSaveButtonState(); // Atualiza o estado do botão Salvar
+                        updateSaveButtonState();
                     } else {
                         alert('Nenhum dado encontrado para este usuário.');
                     }
@@ -34,7 +50,28 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // atualizar o perfil do usuário
+    function uploadProfilePicture(file, user) {
+        return new Promise((resolve, reject) => {
+            const storageRef = storage.ref('profile_pictures/' + user.uid + '/' + file.name);
+            const uploadTask = storageRef.put(file);
+
+            uploadTask.on('state_changed',
+                (snapshot) => {
+                    // Progressão de upload (pode adicionar uma barra de progresso aqui)
+                }, 
+                (error) => {
+                    console.error('Erro ao fazer upload:', error);
+                    reject(error);
+                }, 
+                () => {
+                    uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                        resolve(downloadURL);
+                    });
+                }
+            );
+        });
+    }
+
     function updateUserProfile() {
         const user = auth.currentUser;
 
@@ -47,63 +84,45 @@ document.addEventListener('DOMContentLoaded', function() {
                 complemento: document.getElementById('complemento').value,
             };
 
-            db.collection('users').doc(user.uid).update(updatedData)
-                .then(() => {
-                    alert('Dados atualizados com sucesso!');
-                    toggleEditMode(false);
-                    updateSaveButtonState();
-                })
-                .catch((error) => {
-                    console.error("Erro ao atualizar dados do perfil:", error);
-                    alert("Erro ao atualizar dados do perfil: " + error.message);
-                });
-        } else {
-            alert('Usuário não está autenticado.');
-        }
+            const fileInput = document.getElementById('profile-picture');
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                uploadProfilePicture(file, user)
+                    .then((downloadURL) => {
+                        updatedData.profilePictureURL = downloadURL; // Adicionar URL da foto de perfil ao Firestore
+                        return db.collection('users').doc(user.uid).update(updatedData);
+                    })
+                    .then(() => {
+                        alert('Dados atualizados com sucesso!');
+                        toggleEditMode(false);
+                        updateSaveButtonState();
+                    })
+                    .catch((error) => {
+                        console.error("Erro ao atualizar dados do perfil:", error);
+                        alert("Erro ao atualizar dados do perfil: " + error.message);
+                    });
+            } else {
+                db.collection('users').doc(user.uid).update(updatedData)
+                    .then(() => {
+                        alert('Dados atualizados com sucesso!');
+                        toggleEditMode(false);
+                        updateSaveButtonState();
+                    })
+                    .catch((error) => {
+                        console.error("Erro ao atualizar dados do perfil:", error);
+                        alert("Erro ao atualizar dados do perfil: " + error.message);
+                    });
+            }
+        } 
     }
 
-    // alternar o modo de edição
-    function toggleEditMode(enable) {
-        const formElements = document.querySelectorAll('#infos-form input');
-        formElements.forEach(input => {
-            input.disabled = !enable;
-        });
-
-        const editButton = document.getElementById('edit-btn');
-        const saveButton = document.getElementById('save-btn');
-        
-        editButton.style.display = enable ? 'none' : 'inline';
-        saveButton.style.display = enable ? 'inline' : 'none';
-        
-        if (enable) {
-            saveButton.style.backgroundColor = '#CCCCCC';
-            saveButton.disabled = true; 
-        } else {
-            saveButton.style.backgroundColor = '#FCB73E'; 
-        }
-    }
-
-     // atualizar o estado do botão Salvar
-    function updateSaveButtonState() {
-        const formElements = document.querySelectorAll('#infos-form input');
-        const hasChanges = Array.from(formElements).some(input => input.value !== input.defaultValue);
-
-        const saveButton = document.getElementById('save-btn');
-        saveButton.disabled = !hasChanges; 
-        saveButton.style.backgroundColor = hasChanges ? '#61a977' : '#CCCCCC';
-    }
-
-    // Monitorar mudanças no estado de autenticação
     auth.onAuthStateChanged(function(user) {
         if (user) {
+            console.log('Usuário logado:', user);
             loadUserProfile(user);
-        } else {
-            alert('Usuário não está autenticado.');
-            window.location.href = 'login.html';
-        }
+        } 
     });
 
-    // Adicionar ouvintes de evento
     document.getElementById('edit-btn').addEventListener('click', function() {
         toggleEditMode(true);
     });
@@ -117,3 +136,4 @@ document.addEventListener('DOMContentLoaded', function() {
         updateUserProfile();
     });
 });
+

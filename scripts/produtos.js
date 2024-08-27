@@ -109,13 +109,11 @@ document.addEventListener('DOMContentLoaded', () => {
         renderProducts(filteredProducts);
     });
 
-    renderProducts(products);
+    // Atualizar carrinho na carga da página
+    function updateCartOnPageLoad() {
+        cart = JSON.parse(localStorage.getItem('cart')) || {};
+        renderProducts(products);
+    }
+
+    updateCartOnPageLoad();
 });
-
-//Limpar a quantidade de produtos após clicar em Finalizar no pagamento
-function updateCartOnPageLoad() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || {};
-    renderProducts(products);
-}
-
-updateCartOnPageLoad();

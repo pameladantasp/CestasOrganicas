@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
 }
-    /* título das 3 sessões */
+/* título das 3 sessões */
 .h2-sections {
     font-size: 28px;
     margin: -1px;
@@ -33,7 +33,7 @@ header {
     margin: auto;
     padding: 0px 16px;
     text-align: center;
-    z-index: 1;
+    z-index: 2;
     background-color: transparent; /* Inicia com fundo transparente */
     transition: background-color 0.3s ease;
 } 
@@ -66,12 +66,13 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     opacity: 1;
-    z-index: -1;
+    z-index: 1; 
+    position: relative; 
 }
 
 /* Home - Sobre a Cooperativa */
-.sobre-cooperativa {
-    padding: 20px;
+#sobre-cooperativa {
+    padding: 18px;
 }
 
 .h2-sections {
@@ -97,7 +98,7 @@ header {
     margin: 10px;
     margin-left: 10%;
     width: 100%;
-    max-width: 550px; /* Define um tamanho máximo para a imagem */
+    max-width: 550px; 
     height: auto;
     border-radius: 5px;
 }
@@ -109,11 +110,16 @@ header {
     margin-right: 10%;
 }
 
-/* 3 Cards - Sessão */
+/* 3 Cards - sobre/login/buscar */
 .cards-container {
     display: flex;
-    justify-content: space-around; /* Espaço uniforme ao redor dos cards */
-    margin: 5% 10% 3% 10%;
+    justify-content: space-around;
+    margin: 5%; 
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+    z-index: 1; /* Z-index maior para sobrepor o banner */
 }
 
 .card {
@@ -136,7 +142,7 @@ header {
 }
 
 .missao, .visao, .valores{
-    font-size: 20px;
+    font-size: 16px;
     width: 80%; 
     height: 100px; 
     margin: 45px; 
@@ -166,18 +172,18 @@ header {
     position: fixed;
     top: 0;
     right: 0;
-    background-color: #C06E77;
+    background-color: rgb(245, 245, 245);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-    z-index: 2;
+    z-index: 4;
 }
 
 .side-menu a {
     padding: 10px 15px 40px;
     text-decoration: none;
     font-size: 18px;
-    color: white;
+    color:black;
     display: block;
     transition: 0.3s;
 }
@@ -214,7 +220,7 @@ header {
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
-    z-index: 1;
+    z-index: 2;
 }
 
 .side-menu.open {
@@ -246,3 +252,6 @@ body, html {
     padding: 0;
     width: 100%;
 }
+
+
+
