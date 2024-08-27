@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 })
                 .catch((error) => {
-                    console.error("Erro ao carregar dados do perfil:", error);
-                    alert("Erro ao carregar dados do perfil: " + error.message);
+                    //console.error("Erro ao carregar dados do perfil:", error);
+                   // alert("Erro ao carregar dados do perfil: " + error.message);
                 });
         } else {
             alert('Usuário não está autenticado.');
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         updateSaveButtonState();
                     })
                     .catch((error) => {
-                        console.error("Erro ao atualizar dados do perfil:", error);
+                        //console.error("Erro ao atualizar dados do perfil:", error);
                         alert("Erro ao atualizar dados do perfil: " + error.message);
                     });
             } else {

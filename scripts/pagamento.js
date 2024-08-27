@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    // Verifique se window.storage está definido
+    console.log('Window.storage no pagamento.js:', window.storage);
+
     fileInput.addEventListener('change', () => {
         if (fileInput.files.length > 0) {
             finalizeButton.disabled = false;
@@ -20,6 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const uploadFile = (file) => {
         console.log('Iniciando upload do arquivo...');
+        if (!window.storage) {
+            throw new Error('Firebase Storage não está inicializado.');
+        }
+
         const storageRef = window.storage.ref('uploads/' + file.name);
         const uploadTask = storageRef.put(file);
 

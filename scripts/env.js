@@ -13,5 +13,6 @@ const db = firebase.firestore();
 const storage = firebase.storage();
 window.auth = auth;
 window.db = db;
-//window.storage = storage; 
+window.storage = storage;
 
+console.log('Firebase storage:', window.storage); // Adicione este console.log
